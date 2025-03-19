@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { text } from 'stream/consumers';
+import MostrarTexto from './MostrarTexto';
 
 function App() {
 
-  const [texto, setTexto] = useState('');
+  const [texto, setTexto] = useState('VALOR POR DEFECTO');
   const [checked, setChecked] = useState(false);
   
   const manejarKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -21,9 +20,8 @@ function App() {
         onKeyUp={(e) => manejarKeyUp(e) }
       />
 
-      <div>
-        {texto}
-      </div>
+    <MostrarTexto texto={texto}></MostrarTexto>
+
       <div>
         <input 
           type="checkbox"
