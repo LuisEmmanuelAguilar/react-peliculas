@@ -5,24 +5,18 @@ import { text } from 'stream/consumers';
 
 function App() {
 
-  let texto = "";
-
-  const manejarClick = () => console.log('click');
-
+  const [texto, setTexto] = useState('');
+  const [checked, setChecked] = useState(false);
+  
   const manejarKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     console.log(e.currentTarget.value);
-    texto = e.currentTarget.value;
+    setTexto(e.currentTarget.value);
   }
 
   return(
     <div>
       <h1>Hola Mundo</h1>
   
-      <button onClick={ manejarClick }>Click on me!</button>
-      <button
-        onMouseEnter={() => console.log('entrado')} 
-        onClick={() => console.log('click desde el boton')}>Click con funcion anonima desde el boton</button>
-      
       <input type="text" 
         onKeyUp={(e) => manejarKeyUp(e) }
       />
@@ -30,7 +24,12 @@ function App() {
       <div>
         {texto}
       </div>
-
+      <div>
+        <input 
+          type="checkbox"
+          onChange={(e) => setChecked(e.currentTarget.checked)} 
+          checked={checked} /> Este es un checkbox
+      </div>
     </div>
   );
 }
