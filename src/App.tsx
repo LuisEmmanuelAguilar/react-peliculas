@@ -4,22 +4,11 @@ import './App.css';
 
 function App() {
 
-  const [fecha, setFecha] = useState(new Date());
-
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setFecha(new Date());
-    }, 1000);
-
-    return () => clearInterval(timerId);
-  })
-
-  return (
+  return(
     <div>
-      <h3>Ejemplo HTML</h3>
-      <input />
-      <div>{fecha.toString()}</div>
-       </div>
+      <h1>Hola Mundo</h1>
+      <h4>Este es un subtitulo</h4>
+    </div>
   );
 }
 
