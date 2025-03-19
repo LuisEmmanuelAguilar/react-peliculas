@@ -1,23 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { text } from 'stream/consumers';
 
 function App() {
 
-  const duplicar = (valor: number) => valor * 2;
+  let texto = "";
 
-  const imagenURL = "https://images.seeklogo.com/logo-png/14/1/tool-logo-png_seeklogo-140866.png";
+  const manejarClick = () => console.log('click');
+
+  const manejarKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(e.currentTarget.value);
+    texto = e.currentTarget.value;
+  }
 
   return(
     <div>
-      <h1 className='rojo'>Hola Mundo</h1>
+      <h1>Hola Mundo</h1>
+  
+      <button onClick={ manejarClick }>Click on me!</button>
+      <button
+        onMouseEnter={() => console.log('entrado')} 
+        onClick={() => console.log('click desde el boton')}>Click con funcion anonima desde el boton</button>
+      
+      <input type="text" 
+        onKeyUp={(e) => manejarKeyUp(e) }
+      />
 
-
-      <h3>El doble de 3 es {duplicar(3)}</h3>
-      <img src={imagenURL} alt="logoTool" />
       <div>
-        <input type="checkbox" checked={true}/>Este es un checkbox
+        {texto}
       </div>
+
     </div>
   );
 }
