@@ -4,6 +4,13 @@ import './App.css';
 
 function App() {
 
+  const cuadradoNegro = {
+    backgroundColor: 'black',
+    width: '50px',
+    height: '50px',
+    marginLeft: '1rem'
+  }
+
   const subtitulo = "Este es un subtitulo";
 
   const duplicar = (valor: number) => valor * 2;
@@ -12,8 +19,16 @@ function App() {
 
   return(
     <div>
-      <h1>Hola Mundo</h1>
-      <h4>{ subtitulo }</h4>
+      <h1 className='rojo'>Hola Mundo</h1>
+      
+      <div className='cuadradoRojo'></div>
+      <div style={{ backgroundColor: 'green', width: '50px', height: '50px', marginLeft: '1rem'}}></div>
+      <div style={{ backgroundColor: 'blue', width: '50px', height: '50px', marginLeft: '1rem'}}></div>
+
+      <br />
+      <div style={ cuadradoNegro }></div>
+
+      <h4 style={{ color: 'blue'}}>{ subtitulo.toUpperCase() }</h4>
       <h3>El doble de 3 es {duplicar(3)}</h3>
       <img src={imagenURL} alt="logoTool" />
       <div>
