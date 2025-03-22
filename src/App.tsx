@@ -19,15 +19,20 @@ function App() {
   }
   const parteInferior = <div style={estilo}></div>
 
+  const calificaciones = [
+    {nombre: 'Mafalda', calificacion: 99},
+    {nombre: 'Remi', calificacion: 85},
+    {nombre: 'Logan', calificacion: 78},
+    {nombre: 'Luna', calificacion: 60},
+  ]
+
   return(
     <div>
       <h1>Hola Mundo</h1>
 
     <ContenidoDinamico mostrarMensajeSecreto={true}></ContenidoDinamico>
 
-    <ContenidoDinamico2 calificacion={99}></ContenidoDinamico2>
-    <ContenidoDinamico2 calificacion={85}></ContenidoDinamico2>
-    <ContenidoDinamico2 calificacion={70}></ContenidoDinamico2>
+    { calificaciones.map(cal => <ContenidoDinamico2 key={cal.nombre} {...cal}></ContenidoDinamico2>)}
 
       <div>
         <input 
