@@ -5,6 +5,8 @@ import FormularioTexto from './FormularioTexto';
 import EjemploUseEffect from './EjemploUseEffect';
 import ValorContext from './ValorContext';
 import Abuelo from './Abuelo';
+import ContenidoDinamico2 from './ContenidoDinamico2';
+import ErrorBoundary from './ErrorBoundary';
 
 function App() {
 
@@ -16,9 +18,22 @@ function App() {
     setTexto(textoInput);
   }
 
+  const calificaciones = [
+    {nombre: 'Mafalda', calificacion: 99},
+    {nombre: 'Remi', calificacion: 85},
+    {nombre: 'Logan', calificacion: -1},
+    {nombre: 'Luna', calificacion: 82}
+  ]
+
   return(
     <>
       <h1>Hola Mundo</h1>
+
+    { calificaciones.map (cal => 
+      <ErrorBoundary key={cal.nombre} >
+        <ContenidoDinamico2  {...cal }/>
+      </ErrorBoundary>
+    )}
 
     <ValorContext.Provider value={texto}>
       <Abuelo></Abuelo>
