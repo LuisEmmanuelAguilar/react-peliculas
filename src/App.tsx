@@ -6,35 +6,26 @@ import ProyectarContenido2 from './ProyectarContenido2';
 import EjemploReloj from './EjemploReloj';
 import ContenidoDinamico from './ContenidoDinamico';
 import ContenidoDinamico2 from './ContenidoDinamico2';
+import FormularioTexto from './FormularioTexto';
 
 function App() {
 
+  const [texto, setTexto]= useState('Valor por defecto');
   const [checked, setChecked] = useState(false);
   
-  const estilo = {
-    background: 'red',
-    width: '50px',
-    height: '50px',
-    marginLeft: '1rem'
+  const manejarKeyUp = (textoInput: string) => {
+    console.log(textoInput);
+    setTexto(textoInput);
   }
-  const parteInferior = <div style={estilo}></div>
-
-  const calificaciones = [
-    {nombre: 'Mafalda', calificacion: 99},
-    {nombre: 'Remi', calificacion: 85},
-    {nombre: 'Logan', calificacion: 78},
-    {nombre: 'Luna', calificacion: 60},
-  ]
 
   return(
     <div>
       <h1>Hola Mundo</h1>
 
-    <ContenidoDinamico mostrarMensajeSecreto={true}></ContenidoDinamico>
+    <FormularioTexto manejarKeyUp={(e: string) => manejarKeyUp(e)}></FormularioTexto>
+    <MostrarTexto texto={texto}></MostrarTexto>
 
-    { calificaciones.map(cal => <ContenidoDinamico2 key={cal.nombre} {...cal}></ContenidoDinamico2>)}
-
-      <div>
+     <div>
         <input 
           type="checkbox"
           onChange={(e) => setChecked(e.currentTarget.checked)} 
