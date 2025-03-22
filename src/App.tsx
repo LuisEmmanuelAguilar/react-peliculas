@@ -29,15 +29,8 @@ function App() {
     <div>
       <h1>Hola Mundo</h1>
 
-      <ProyectarContenido>
-        <>
-          <span>Componente para proyectar contenido</span>
-        </>
-      </ProyectarContenido>
-  
-
     <ProyectarContenido2
-      parteSuperior={<h3> Esta es la parte de arriba.</h3>}
+      parteSuperior={<span>Este es un mensaje del componente padre.</span>}
       parteIntermedia={parteIntermedia}
       parteInferior={parteInferior}
     ></ProyectarContenido2>
@@ -45,7 +38,7 @@ function App() {
         onKeyUp={(e) => manejarKeyUp(e) }
       />
 
-    <MostrarTexto texto={texto}></MostrarTexto>
+    <MostrarTexto></MostrarTexto>
 
       <div>
         <input 

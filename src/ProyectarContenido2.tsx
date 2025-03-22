@@ -3,7 +3,7 @@ import { ReactElement } from "react"
 export default function ProyectarContenido2(props: proyectarContenido2Props){
     return(
         <>
-            {props.parteSuperior}
+            parte superior: usamos ?{props.parteSuperior ? props.parteSuperior: <h3>Contenido por defecto</h3>}
             <hr />
             {props.parteIntermedia}
             <hr />
@@ -13,7 +13,7 @@ export default function ProyectarContenido2(props: proyectarContenido2Props){
 }
 
 interface proyectarContenido2Props {
-    parteSuperior: ReactElement;
+    parteSuperior?: ReactElement;
     parteIntermedia: ReactElement;
     parteInferior: ReactElement;
 }
