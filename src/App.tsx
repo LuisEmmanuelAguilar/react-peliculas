@@ -4,19 +4,13 @@ import MostrarTexto from './MostrarTexto';
 import ProyectarContenido from './ProyectarContenido';
 import ProyectarContenido2 from './ProyectarContenido2';
 import EjemploReloj from './EjemploReloj';
+import ContenidoDinamico from './ContenidoDinamico';
+import ContenidoDinamico2 from './ContenidoDinamico2';
 
 function App() {
 
-  const [texto, setTexto] = useState('VALOR POR DEFECTO');
   const [checked, setChecked] = useState(false);
   
-  const manejarKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);
-    setTexto(e.currentTarget.value);
-  }
-
-  const parteIntermedia = <EjemploReloj></EjemploReloj>
-
   const estilo = {
     background: 'red',
     width: '50px',
@@ -29,16 +23,11 @@ function App() {
     <div>
       <h1>Hola Mundo</h1>
 
-    <ProyectarContenido2
-      parteSuperior={<span>Este es un mensaje del componente padre.</span>}
-      parteIntermedia={parteIntermedia}
-      parteInferior={parteInferior}
-    ></ProyectarContenido2>
-      <input type="text" 
-        onKeyUp={(e) => manejarKeyUp(e) }
-      />
+    <ContenidoDinamico mostrarMensajeSecreto={true}></ContenidoDinamico>
 
-    <MostrarTexto></MostrarTexto>
+    <ContenidoDinamico2 calificacion={99}></ContenidoDinamico2>
+    <ContenidoDinamico2 calificacion={85}></ContenidoDinamico2>
+    <ContenidoDinamico2 calificacion={70}></ContenidoDinamico2>
 
       <div>
         <input 
