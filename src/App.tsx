@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import MostrarTexto from './MostrarTexto';
-import ProyectarContenido from './ProyectarContenido';
-import ProyectarContenido2 from './ProyectarContenido2';
-import EjemploReloj from './EjemploReloj';
-import ContenidoDinamico from './ContenidoDinamico';
-import ContenidoDinamico2 from './ContenidoDinamico2';
 import FormularioTexto from './FormularioTexto';
+import EjemploUseEffect from './EjemploUseEffect';
 
 function App() {
 
   const [texto, setTexto]= useState('Valor por defecto');
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   
   const manejarKeyUp = (textoInput: string) => {
     console.log(textoInput);
@@ -19,8 +15,18 @@ function App() {
   }
 
   return(
-    <div>
+    <>
       <h1>Hola Mundo</h1>
+
+      <div>
+        <input 
+          type="checkbox"
+          onChange={(e) => setChecked(e.currentTarget.checked)} 
+          checked={checked} /> Mostrar componente useEffect
+      </div>
+
+  { checked ? <EjemploUseEffect /> : null}
+    
 
     <FormularioTexto manejarKeyUp={(e: string) => manejarKeyUp(e)}></FormularioTexto>
     <MostrarTexto texto={texto}></MostrarTexto>
@@ -31,7 +37,7 @@ function App() {
           onChange={(e) => setChecked(e.currentTarget.checked)} 
           checked={checked} /> Este es un checkbox
       </div>
-    </div>
+    </>
   );
 }
 
