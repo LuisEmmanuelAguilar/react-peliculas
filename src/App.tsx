@@ -3,6 +3,8 @@ import './App.css';
 import MostrarTexto from './MostrarTexto';
 import FormularioTexto from './FormularioTexto';
 import EjemploUseEffect from './EjemploUseEffect';
+import ValorContext from './ValorContext';
+import Abuelo from './Abuelo';
 
 function App() {
 
@@ -17,6 +19,10 @@ function App() {
   return(
     <>
       <h1>Hola Mundo</h1>
+
+    <ValorContext.Provider value={texto}>
+      <Abuelo></Abuelo>
+    </ValorContext.Provider>
 
       <div>
         <input 
