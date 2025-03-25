@@ -2,6 +2,7 @@ import { Link, useHistory } from "react-router-dom"
 import Button from "../utils/Button";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from 'yup';
+import FormGroupText from "../utils/FormGroupText";
 
 export default function CrearGenero(){
     
@@ -19,14 +20,7 @@ export default function CrearGenero(){
                 })}
         >
             <Form>
-                <div className="form-group">
-                    <label htmlFor="nombre">Nombre</label>
-                    <Field name="nombre" className="form-control"></Field>
-                    <ErrorMessage name="nombre">{
-                        mensaje => 
-                            <div className="text-danger">{mensaje}</div>
-                        }</ErrorMessage>
-                </div>
+                <FormGroupText campo="nombre" label="Nombre"></FormGroupText>
 
                 <Button type="submit">Salvar</Button>
                 <Link className="btn btn-secondary" to="/generos">Cancelar</Link>
