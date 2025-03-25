@@ -2,6 +2,7 @@ import './App.css';
 import { landingPageDTO } from './peliculas/peliculas.model';
 import ListadoPeliculas from './peliculas/ListadoPeliculas';
 import { useEffect, useState } from 'react';
+import Button from './utils/Button';
 
 function App() {
 
@@ -35,11 +36,15 @@ function App() {
 
   return(
     <>
-      <h3>En Cartelera</h3>
-      <ListadoPeliculas peliculas={peliculas.enCartelera}/>
+      <div className='container'>
+        <Button>Mi componente boton</Button>
 
-      <h3>Proximos Estrenos</h3>
-      <ListadoPeliculas peliculas={peliculas.proximosEstrenos}/>
+        <h3>En Cartelera</h3>
+        <ListadoPeliculas peliculas={peliculas.enCartelera}/>
+
+        <h3>Proximos Estrenos</h3>
+        <ListadoPeliculas peliculas={peliculas.proximosEstrenos}/>
+      </div>
     </>
   );
 }
