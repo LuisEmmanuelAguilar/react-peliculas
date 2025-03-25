@@ -1,5 +1,5 @@
 export default function CrearPelicula() {
     return (
-        <h3>Editar Pelicula</h3>
+        <h3>Crear Pelicula</h3>
     )
 }
