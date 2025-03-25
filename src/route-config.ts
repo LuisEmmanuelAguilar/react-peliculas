@@ -8,6 +8,9 @@ import CrearGenero from "./generos/CrearGenero";
 import EditarGenero from "./generos/EditarGeenero";
 import IndiceGeneros from "./generos/IndiceGeneros";
 import LandingPage from "./LandingPage";
+import CrearPelicula from './peliculas/CrearPelicula';
+import EditarPelicula from "./peliculas/EditarPelicula";
+import FiltrarPeliculas from "./peliculas/FiltrarPeliculas";
 
 const rutas = [
     { path: "/generos", componente: IndiceGeneros, exact: true },
@@ -19,6 +22,9 @@ const rutas = [
     { path: "/cines", componente: IndiceCines, exact: true },
     { path: "/cines/crear", componente: CrearCine, exact: true },
     { path: "/cines/editar", componente: EditarCine, exact: true },
+    { path: "/peliculas/crear", componente: CrearPelicula, exact: true },
+    { path: "/peliculas/editar", componente: EditarPelicula, exact: true },
+    { path: "/peliculas/filtrar", componente: FiltrarPeliculas, exact: true },
     { path: "/", componente: LandingPage, exact: true }];
 
 export default rutas;
