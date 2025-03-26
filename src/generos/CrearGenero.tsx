@@ -4,31 +4,35 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from 'yup';
 import FormGroupText from "../utils/FormGroupText";
 
-export default function CrearGenero(){
-    
+export default function CrearGenero() {
+
     //const history = useHistory();
-    return(
+    return (
         <>
-        <h3>Crear Genero</h3>
-        <Formik initialValues={{ nombre: ''}}
-                onSubmit={values => { 
+            <h3>Crear Genero</h3>
+            <Formik initialValues={{
+                nombre: ''
+            }}
+                onSubmit={async values => {
+                    await new Promise(r => setTimeout(r, 3000));
                     console.log(values);
                 }}
 
                 validationSchema={Yup.object({
                     nombre: Yup.string().required('Este campo es requerido').primeraLetraMayuscula()
                 })}
-        >
-            <Form>
-                <FormGroupText campo="nombre" label="Nombre"></FormGroupText>
+            >
+                {(formikProps) => (
+                    <Form>
+                        <FormGroupText campo="nombre" label="Nombre"></FormGroupText>
 
-                <Button type="submit">Salvar</Button>
-                <Link className="btn btn-secondary" to="/generos">Cancelar</Link>
-            </Form>
-
-
-        </Formik>
-
+                        <Button disabled={formikProps.isSubmitting}
+                            type="submit">Salvar</Button>
+                        <Link className="btn btn-secondary" to="/generos">Cancelar</Link>
+                    </Form>
+                )
+                }
+            </Formik>
         </>
     )
 }
