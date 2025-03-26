@@ -16,7 +16,7 @@ export default function CrearGenero(){
                 }}
 
                 validationSchema={Yup.object({
-                    nombre: Yup.string().required('Este campo es requerido')
+                    nombre: Yup.string().required('Este campo es requerido').primeraLetraMayuscula()
                 })}
         >
             <Form>
